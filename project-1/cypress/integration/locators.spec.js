@@ -34,4 +34,8 @@ describe('locators', () => {
 
     cy.getByTestId('btn-id-1')
   })
+
+  it('should locate elements and checking their values', () => {
+    cy.get('#btn-with-id').contains('Button With Id')
+  })
 })
