@@ -37,5 +37,7 @@ describe('locators', () => {
 
   it('should locate elements and checking their values', () => {
     cy.get('#btn-with-id').contains('Button With Id')
+
+    cy.contains('[type="submit"]', 'Button With Type Submit')
   })
 })
