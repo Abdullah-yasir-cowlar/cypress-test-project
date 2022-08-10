@@ -31,5 +31,7 @@ describe('locators', () => {
     cy.get('button.Elements-btn#btn-with-id')
     //get all elements with tagname, class and type attr
     cy.get("button.Elements-btn[type='submit']")
+
+    cy.getByTestId('btn-id-1')
   })
 })
