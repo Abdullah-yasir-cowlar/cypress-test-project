@@ -24,4 +24,21 @@ describe('Accomplishments dashboard', () => {
       'be.visible'
     )
   })
+
+  it('should empty all inputs, when Go Back button is clicked', () => {
+    cy.getByTestId('accomplishment-title-input').type('Finished one of my apps')
+    cy.getByTestId('accomplishment-input').type('Learn code app')
+    cy.getByTestId('accomplishment-checkbox').type('Learn code app')
+
+    cy.contains('Submit Accomplishment').click()
+    cy.contains('This Accomplisment was Successfully Submitted').should(
+      'be.visible'
+    )
+
+    cy.contains('Go Back').click()
+
+    cy.getByTestId('accomplishment-title-input').should('not.have.value')
+    cy.getByTestId('accomplishment-input').should('not.have.value')
+    cy.getByTestId('accomplishment-checkbox').should('not.be.checked')
+  })
 })
