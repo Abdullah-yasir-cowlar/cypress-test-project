@@ -29,4 +29,17 @@ describe('habit dashboar', () => {
     cy.get('.HabitCard__habit-container').click()
     cy.get('[src="/static/media/check.9e8832df.svg"]').should('be.visible')
   })
+
+  it('should not submit empty form', () => {
+    cy.get('#habit-add-btn').click()
+    cy.contains('Save Changes').click()
+    cy.contains('Add a new habit').should('be.visible')
+  })
+
+  it('should hide model when cancel btn is clicked without creating new habit', () => {
+    cy.get('#habit-add-btn').click()
+    cy.get('input[placeholder="Habit"]').type('Drink water in morning')
+    cy.contains('Close').click()
+    cy.get('.HabitCard').should('not.have.length')
+  })
 })
