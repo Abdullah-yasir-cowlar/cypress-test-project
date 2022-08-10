@@ -40,4 +40,8 @@ describe('locators', () => {
 
     cy.contains('[type="submit"]', 'Button With Type Submit')
   })
+
+  it('should find elements', () => {
+    cy.get('#form-1').find('.btn-1')
+  })
 })
