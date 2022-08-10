@@ -6,7 +6,7 @@ describe('locators', () => {
     cy.visit('/elements')
   })
 
-  it('locating elements with get command', () => {
+  it('should locate elements with get command', () => {
     // get all elemens by tag name
     cy.get('button')
     cy.get('h2')
@@ -29,5 +29,7 @@ describe('locators', () => {
     cy.get('button.Elements-btn')
     // get all elements with tagname, classname and id
     cy.get('button.Elements-btn#btn-with-id')
+    //get all elements with tagname, class and type attr
+    cy.get("button.Elements-btn[type='submit']")
   })
 })
