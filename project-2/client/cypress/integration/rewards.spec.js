@@ -11,4 +11,14 @@ describe('Rewards dashboard', () => {
       .should('contain', '5000 points for getting a new job')
       .and('contain', '500 points for practicing basketball')
   })
+
+  it('should display a list of rewards (mock)', () => {
+    cy.intercept('GET', 'http://localhost:4000/rewards', {
+      fixture: 'rewards.json',
+    })
+
+    cy.get('ul')
+      .should('contain', '5000 points for getting a new job')
+      .and('contain', '500 points for practicing basketball')
+  })
 })
